@@ -36,8 +36,8 @@ while number_page <= int(get_count_pages):
 
     for product in find_content:
         get_product_name = product.contents[1].string
-        find_product_price = product.contents[3]
         try:
+            find_product_price = product.contents[3]
             get_price_new = find_product_price.find(
                 "div", class_="products__item_price products__item_price_special"
             ).string
@@ -49,6 +49,7 @@ while number_page <= int(get_count_pages):
             )
         except:
             try:
+                find_product_price = product.contents[3]
                 get_price = find_product_price.find(
                     "div", class_="products__item_price"
                 ).string
